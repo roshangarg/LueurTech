@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css">
+    <title>sign Up gage</title>
+  
+</head>
+<body>
+   <div class="form">
+        <div class="formContainer">
+            <form action="" onsubmit=" return handleClick()" >
+            <p style="margin-bottom: 2rem;"><b>Sign Up</b></p>
+            
+            <input type="text" required name="name" placeholder="Username" id="name"><br><br>
+            
+            <input type="password" required name="password" placeholder="Password" id="password"><br><br>
+            <input type="password" required name="password1" placeholder="Retype password" id="password1"><br>
+            <input class="submit" type="submit" value="Sign Up ">
+        </form>
+
+        </div>
+        <p style="position: absolute;
+        top: 0px;
+        right: 10px;visibility: hidden; padding: 20px; background-color: rgb(247, 241, 241); color: red;"id="msg"> </p>
+   </div>
+   <script>
+
+   
+    function handleClick(){
+        var returnval = true
+    var name = document.getElementById('name').value
+    var password = document.getElementById('password').value
+    var retyped_password = document.getElementById("password1").value
+     
+    if (password.length <= 8){
+        document.getElementById('msg').innerHTML="Length Of password is less than 8"
+        document.getElementById('msg').style.visibility='visible';
+        returnval = false
+    }
+    else if(password!==retyped_password){
+            
+        document.getElementById('msg').innerHTML="Password and retyped password are not same "
+         
+        returnval = false
+    }
+    
+
+    return returnval;
+    const data = {name,password,retyped_password}
+    console.log(data)
+}
+   </script>
+</body>
+</html>
